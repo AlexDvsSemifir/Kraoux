@@ -3,9 +3,10 @@
 ## Description
 
 Permet l'installation des outils suivants :
- - NodeJS
- - JDK
- - VSCode
+
+- NodeJS
+- JDK
+- VSCode
 
 ## Prérequis
 
