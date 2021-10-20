@@ -5,10 +5,10 @@
 import os
 import os.path
 import subprocess
-from typing import ForwardRef
+#from typing import ForwardRef
 import urllib
 from urllib import request
-from urllib.parse import urlparse
+#from urllib.parse import urlparse
 import time
 import shutil
 
@@ -21,8 +21,9 @@ os.makedirs(DESTINATION_DOWNLOAD)
 
 URL_DL_VSCODE = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
 URL_DL_NODEJS = "https://nodejs.org/dist/v14.18.1/node-v14.18.1-x64.msi"
+URL_DL_JDK = "https://download.oracle.com/java/17/latest/jdk-17_windows-x64_bin.exe"
 
-URL_LIST = [URL_DL_VSCODE, URL_DL_NODEJS]
+URL_LIST = [URL_DL_VSCODE, URL_DL_NODEJS, URL_DL_JDK]
 
 
 #############
@@ -44,7 +45,7 @@ def download_and_execute(url):
                 subprocess.call('msiexec /i ' + DESTINATION_DOWNLOAD + "\\" + filename)
             else:
                 print("Installation de " + filename + " en cours. Merci de patienter")
-                subprocess.call(DESTINATION_DOWNLOAD + "\\" + filename)
+                subprocess.call(['runas', '/user:Administrateur', DESTINATION_DOWNLOAD + "\\" + filename])
             file_exist = True
         else:
             print ("Waiting for" + filename + "to download...")
@@ -54,9 +55,10 @@ def download_and_execute(url):
 # EXECUTION #
 #############
 
-i = 0
-while i < len(URL_LIST):
-    download_and_execute(URL_LIST[i])
-    i = i + 1
+# i = 0
+# while i < len(URL_LIST):
+#     download_and_execute(URL_LIST[i])
+#     i = i + 1
+download_and_execute(URL_DL_JDK) # TEST TO BE REMOVED
 
 shutil.rmtree(DESTINATION_DOWNLOAD)
