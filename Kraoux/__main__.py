@@ -28,7 +28,7 @@ URL_LIST = [URL_DL_VSCODE, URL_DL_NODEJS, URL_DL_JDK]
 # FUNCTIONS #
 #############
 
-# Fonction pour télécharger la source depuis le site, vérifier si le téléchargement est fini puis executer la source (.exe) :
+# Fonction pour télécharger la source depuis le site, vérifier si le téléchargement est fini puis executer la source (.exe ou .msi) :
 def download_and_execute(url):
     file_exist = False
     filename = request.urlopen(request.Request(url)).info().get_filename()
@@ -60,6 +60,5 @@ i = 0
 while i < len(URL_LIST):
     download_and_execute(URL_LIST[i])
     i = i + 1
-    wait = input("Appuyez sur Enter pour continuer.")
 
 shutil.rmtree(DESTINATION_DOWNLOAD)
