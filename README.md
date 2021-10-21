@@ -6,12 +6,15 @@ Permet l'installation des outils suivants :
 
 - VSCode
 - Node JS
+- JDK
 
 ## Prérequis
 
 - [python >= 3.9](https://www.python.org/downloads/)
 
 ## Lancement
+
+Executer le script en tant qu'administrateur
 
 ## Changelog commit
 
@@ -31,6 +34,4 @@ Ajout de l'installation automatisée de VS Code :
 
 ## Random Incoming Features
 
-- Ajout de JDK
-- Messages d'information sur la progression/installation en cour.
 - Choix des programmes à installer ?
