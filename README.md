@@ -49,3 +49,5 @@ Ajout de l'installation automatisée de VS Code :
 
 - Choix des programmes à installer ?
 - Full ZTI ?
+
+tralalalala
